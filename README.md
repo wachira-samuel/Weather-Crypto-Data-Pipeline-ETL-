@@ -103,9 +103,7 @@ Cryptocurrency Data Extraction
 
 The crypto extraction function retrieves real-time cryptocurrency prices from Binance.
 
-  
-  ```
-  def extract_crypto():
+    def extract_crypto():
     url = f"https://api.binance.com/api/v3/ticker/price?"
     response = requests.get(url)
     response.raise_for_status()
@@ -116,14 +114,14 @@ The crypto extraction function retrieves real-time cryptocurrency prices from Bi
         "price": float(data["price"])
     }
 
-```
+
 
 Supported Crypto Symbols
 
-    ```
+    
     symbol = ["BTCUSDT", "ETHUSDT", "BNBUSDT", "ADAUSDT", "DOGEUSDT"]
 
-    ```
+    
 
 Key Features
 
@@ -141,12 +139,12 @@ Database Connection
 
 SQLAlchemy is used to establish a PostgreSQL connection.
 
-    ```
+    
     DATABASE_URL = f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
     engine = create_engine(DATABASE_URL)
 
-    ```
+    
 
 Benefits of SQLAlchemy
 
@@ -159,7 +157,7 @@ Benefits of SQLAlchemy
 
 Loading Weather Data
 
-    ```
+    
     connection.execute(
     text("""
         INSERT INTO weather_data (city, temperature, humidity)
@@ -171,11 +169,11 @@ Loading Weather Data
         "humidity": weather["humidity"]
     }
     )  
-    ```
+    
 
 Loading Cryptocurrency Data
 
-    ```
+    
     connection.execute(
     text("""
         INSERT INTO crypto_data (symbol, price)
@@ -186,25 +184,25 @@ Loading Cryptocurrency Data
         "price": crypto["price"]
     }
     )
-    ```
+    
 Data Validation
 
 After loading, Pandas is used to verify inserted records.
 
 Weather Table Validation
    
-    ```
+    
     weather_df = pd.read_sql("SELECT * FROM weather_data;", engine)
     print(weather_df)
-    ```
+    
     
 Crypto Table Validation
 
-    ```
+    
     crypto_df = pd.read_sql("SELECT * FROM binance_data;", engine)
     print(crypto_df)
 
-    ```
+    
 
 This enables quick inspection of:
 
@@ -217,11 +215,16 @@ This enables quick inspection of:
 
 This ETL pipeline demonstrates several real-world fintech engineering concepts:
 
-    FinTech Need	              Implementation
-    Real-time market data      	Binance API integration
-    Data reliability          	Error handling
-    Secure database operations	Parameterized SQL
-    Data analytics readiness	  Structured PostgreSQL storage
-    Automation potential	      ETL modularization
+  FinTech Need	                Implementation
+  
+  1.Real-time market data      	Binance API integration
+    
+  2.Data reliability          	Error handling
+  
+  3.Secure database operations	Parameterized SQL
+    
+  4.Data analytics readiness	  Structured PostgreSQL storage
+  
+  5.Automation potential	      ETL modularization
 
 
