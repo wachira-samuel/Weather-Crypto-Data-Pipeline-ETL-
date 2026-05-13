@@ -215,16 +215,16 @@ This enables quick inspection of:
 
 This ETL pipeline demonstrates several real-world fintech engineering concepts:
 
-  FinTech Need	                Implementation
+ | FinTech Need	             |   Implementation|
   
-  1.Real-time market data      	Binance API integration
+  1.Real-time market data     | 	Binance API integration|
     
-  2.Data reliability          	Error handling
+  2.Data reliability          |	Error handling
   
-  3.Secure database operations	Parameterized SQL
+  3.Secure database operations |	Parameterized SQL
     
-  4.Data analytics readiness	  Structured PostgreSQL storage
+  4.Data analytics readiness	  |Structured PostgreSQL storage
   
-  5.Automation potential	      ETL modularization
+  5.Automation potential	    |  ETL modularization
 
 
